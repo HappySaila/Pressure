@@ -69,6 +69,6 @@ public class BlobMainScript : MonoBehaviour {
 
 		}
 
-		rb.AddForce(movment*currentSpeed);
+		rb.AddForce(movment*Time.deltaTime*currentSpeed);
 	}
 }

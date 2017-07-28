@@ -291,6 +291,11 @@ Prefab:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1637784777}
+    - target: {fileID: 114705215889639344, guid: 061032468ce310d4cb5a4d208dff5350,
+        type: 2}
+      propertyPath: turnspeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 061032468ce310d4cb5a4d208dff5350, type: 2}
   m_IsPrefabParent: 0
