@@ -73,10 +73,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbbb070446342c4bbcac1040999939e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 1
-  currentSpeed: 1
+  currentSpeed: 100
   pointAdder: 1
-  startSize: 1
   currentSize: 1
   playerOwnedBy: 0
   rb: {fileID: 0}
