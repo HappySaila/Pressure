@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class BlobMainScript : MonoBehaviour {
 
-	public float startSpeed;
+
 	public float currentSpeed;
 	public int pointAdder;
 
 	//public int pointmultiplyer;//usefull pickup
 
-	public float startSize;
 	public float currentSize;
 
 	public bool playerOwnedBy=true;//true1 false2 players
