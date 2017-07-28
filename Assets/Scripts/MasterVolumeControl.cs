@@ -17,6 +17,7 @@ public class MasterVolumeControl : MonoBehaviour {
 
 	// Update is called once per frame
 	public void UpdateMixer () {
+		//-80 to account for decibels
 		float SFXVal = (1-SFXSlider.value)*-80;
 		float MusicVal = (1-MusicSlider.value)*-80;
 		//calculate set value
