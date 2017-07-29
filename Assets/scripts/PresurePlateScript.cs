@@ -16,8 +16,8 @@ public class PresurePlateScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D blobTouched){
 		if (blobTouched.tag == "Blob") {
-			FollowerMainScript blobTouchedScript = blobTouched.gameObject.GetComponentInChildren<FollowerMainScript> ();
-			blobTouchedScript.setColourAndType (plateNumberType);
+			sittingBlobScript blobTouchedScript = blobTouched.gameObject.GetComponentInChildren<sittingBlobScript> ();
+			blobTouchedScript.setState(plateNumberType);
 		}
 
 	}

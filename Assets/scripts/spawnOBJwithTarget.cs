@@ -18,10 +18,10 @@ public class spawnOBJwithTarget : MonoBehaviour {
 		if(c.tag == "Blob"){
 			GameObject newBlob = (GameObject)GameObject.Instantiate (thingToSpawn,transform.position,transform.rotation);
 
-			FollowerMainScript newBlobScript=newBlob.GetComponentInChildren<FollowerMainScript>();
-			FollowerMainScript oldBlobScript=c.gameObject.GetComponent<FollowerMainScript>();
-			newBlobScript.setOwner (oldBlobScript.getOwner());
-			newBlobScript.callStartMoving ();
+			sittingBlobScript newBlobScript=newBlob.GetComponentInChildren<sittingBlobScript>();
+			sittingBlobScript oldBlobScript=c.gameObject.GetComponent<sittingBlobScript>();
+
+
 			
 			Destroy (gameObject);
 		}

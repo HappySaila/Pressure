@@ -75,7 +75,7 @@ public class sittingBlobScript : MonoBehaviour {
 
 		switch (State) {
 		case 0://.WHITE:
-			SendParticle();
+			SendParticles();
 			break;
 		case 1://.GREEN:
 
@@ -149,17 +149,17 @@ public class sittingBlobScript : MonoBehaviour {
 		
 		if (player == 1) {
 			if(1.0f-percentONE>percentTWO){
-				percentONE += 0.01;
+				percentONE += 0.01f;
 			}else{
-				percentTWO-=0.01;
-				percentONE+=0.01;
+				percentTWO-=0.01f;
+				percentONE+=0.01f;
 			}
 		} else {//2
 			if(1.0f-percentTWO>percentONE){
-				percentTWO += 0.01;
+				percentTWO += 0.01f;
 			}else{
-				percentONE-=0.01;
-				percentTWO += 0.01;
+				percentONE-=0.01f;
+				percentTWO += 0.01f;
 			}
 		}
 
