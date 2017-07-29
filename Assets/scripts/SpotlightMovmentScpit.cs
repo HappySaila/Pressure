@@ -63,6 +63,12 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 		}
 
 		rb.velocity = movement.normalized * currentSpeed * Time.deltaTime;
+		if (movement.magnitude != 0){
+			float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+			Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+
+			transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 5);
+		}
 	}
 
 	public void addpower(float amount){
