@@ -141,10 +141,9 @@ MonoBehaviour:
   turnspeed: 5000
   currentSize: 0
   idleDistance: 1
-  RandumRangeMultiplyer: 0
-  purple: {r: 0.9254562, g: 0.22794116, b: 1, a: 1}
-  green: {r: 0.21323532, g: 1, b: 0.38144013, a: 1}
-  white: {r: 1, g: 1, b: 1, a: 1}
+
+  RandumRangeMultiplyer: 0.5
+  purplej: {r: 0.94482756, g: 0, b: 1, a: 1}
   State: 0
   particleToSpawn: {fileID: 1421658736012288, guid: 9fa4bfc85fd20484ca13331fe351af68,
     type: 2}
