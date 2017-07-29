@@ -79,20 +79,6 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 		HudManager.Instance.UpdatePowerSource (player1, currentPowerLevel/maxPowerLevel);
 	}
 
-	void OnTriggerStay2D(Collider2D c){
-		
-		if (c.tag == "Blob") {
-			sittingBlobScript CaptureBlobScript=c.gameObject.GetComponent<sittingBlobScript>();
-			if(player1){
-				CaptureBlobScript.Captured (1);
-			}
-			else{
-				CaptureBlobScript.Captured (2);
-			}
-
-		}
-	}
-
 
 }
 
