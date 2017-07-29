@@ -54,6 +54,7 @@ public class PlayerStatistics : MonoBehaviour {
             values[10].text = monstersKilled.ToString();
         } catch(Exception e) {
             //This is a false error. Does no harm to the game.
+			Debug.LogFormat("e {0}", e.Message);
         }
     }
 
