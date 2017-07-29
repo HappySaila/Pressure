@@ -10,12 +10,15 @@ public class powerParticleMoveScript : MonoBehaviour {
 	public float particleSpeed;
 	public float particleTurnSpeed;
 	public float consumeDistance;
+	public float amountOfPowerHeld;
 	public bool IsConsumed;
 
 	private Rigidbody2D rb;
+	private SpotlightMovmentScpit TargetSpotlightMovmentScpit;
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+
 	}
 	
 	// Update is called once per frame
@@ -47,9 +50,22 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 	public void setTarget(GameObject newTarget){
 		Target = newTarget;
+		TargetSpotlightMovmentScpit = Target.GetComponent<SpotlightMovmentScpit> ();
 	}
 	public GameObject getTarget(){
 		return Target;
+	}
+
+	void OnTriggerEnter2D(Collider2D c){
+
+		if (c.tag =="PlayerSpotLight") {
+			IsConsumed = true;
+			TargetSpotlightMovmentScpit.addpower (amountOfPowerHeld);//increment power of player
+
+
+			//
+			Destroy (gameObject);
+		}
 	}
 
 }

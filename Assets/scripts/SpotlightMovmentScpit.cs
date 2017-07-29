@@ -7,16 +7,13 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 
 
 	public float currentSpeed;
-	public int pointAdder;
-
-	public float currentSize;
-
+	public float currentPowerLevel;
 	public bool playerOwnedBy=true;//true1 false2 players
 
 	Vector2 movment;
 
-	public Rigidbody2D rb;
-	//Debug.Log ("A");
+	private Rigidbody2D rb;
+
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 
@@ -25,11 +22,13 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+		MovePlayer ();
+	}
+	void MovePlayer(){
 		if (playerOwnedBy) {//player true
 			if (Input.GetKey ("up")) {
-				movment.y= 1;
-			} 
-			else if (Input.GetKey ("down")) {
+				movment.y = 1;
+			} else if (Input.GetKey ("down")) {
 				movment.y = -1;
 			} else {
 				movment.y = 0;
@@ -38,8 +37,7 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 			if (Input.GetKey ("left")) {
 				movment.x = -1;
 
-			} 
-			else if (Input.GetKey ("right")) {
+			} else if (Input.GetKey ("right")) {
 				movment.x = 1;
 			} else {
 				movment.x = 0;
@@ -47,9 +45,8 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 
 		} else {//player false
 			if (Input.GetKey (KeyCode.W)) {
-				movment.y= 1;
-			} 
-			else if (Input.GetKey (KeyCode.S)) {
+				movment.y = 1;
+			} else if (Input.GetKey (KeyCode.S)) {
 				movment.y = -1;
 			} else {
 				movment.y = 0;
@@ -58,8 +55,7 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 			if (Input.GetKey (KeyCode.A)) {
 				movment.x = -1;
 
-			} 
-			else if (Input.GetKey (KeyCode.D)) {
+			} else if (Input.GetKey (KeyCode.D)) {
 				movment.x = 1;
 			} else {
 				movment.x = 0;
@@ -67,7 +63,13 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 
 		}
 
-		rb.AddForce(movment*Time.deltaTime*currentSpeed);
+		rb.AddForce (movment * Time.deltaTime * currentSpeed);
 	}
+
+	public void addpower(float amount){
+		Debug.Log ("a" + amount);
+		currentPowerLevel =currentPowerLevel+ amount;
+	}
+
 }
 

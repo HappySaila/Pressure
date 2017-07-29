@@ -11,10 +11,6 @@ public class PresurePlateScript : MonoBehaviour {
 	void Start () {
 		sr = GetComponent <SpriteRenderer>();
 
-
-		if(plateNumberType==null){//incase of null
-			plateNumberType=Random.Range(0,2);
-		}
 		switch (plateNumberType) {
 		case 0:
 			sr.color = Color.white;
@@ -39,12 +35,10 @@ public class PresurePlateScript : MonoBehaviour {
 
 
 	void OnTriggerEnter2D(Collider2D blobTouched){
-
-
-			
-		FollowerMainScript blobTouchedScript=blobTouched.gameObject.GetComponentInChildren<FollowerMainScript>();
-		blobTouchedScript.setColourAndType (plateNumberType);
-			
+		if (blobTouched.tag == "Blob") {
+			FollowerMainScript blobTouchedScript = blobTouched.gameObject.GetComponentInChildren<FollowerMainScript> ();
+			blobTouchedScript.setColourAndType (plateNumberType);
+		}
 
 	}
 

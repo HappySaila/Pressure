@@ -147,8 +147,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114296734529964722, guid: 313b3138f1e241442904b5cc8bb8d04c, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 313b3138f1e241442904b5cc8bb8d04c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &878647481
@@ -164,7 +163,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4883837438250074, guid: 29c1932e4a368c1429c123f1dc8282d1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.2
+      value: -1.86
       objectReference: {fileID: 0}
     - target: {fileID: 4883837438250074, guid: 29c1932e4a368c1429c123f1dc8282d1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -242,35 +241,7 @@ Prefab:
       propertyPath: owner
       value: 
       objectReference: {fileID: 1637784777}
-    - target: {fileID: 58092212946740928, guid: 5f025ca3b9161ee4e8ce876d3ae7ca5c,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114643532431319872, guid: 5f025ca3b9161ee4e8ce876d3ae7ca5c,
-        type: 2}
-      propertyPath: currentSize
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114643532431319872, guid: 5f025ca3b9161ee4e8ce876d3ae7ca5c,
-        type: 2}
-      propertyPath: particleToSpawn
-      value: 
-      objectReference: {fileID: 1421658736012288, guid: 9fa4bfc85fd20484ca13331fe351af68,
-        type: 2}
-    - target: {fileID: 114643532431319872, guid: 5f025ca3b9161ee4e8ce876d3ae7ca5c,
-        type: 2}
-      propertyPath: particleSendRate
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114643532431319872, guid: 5f025ca3b9161ee4e8ce876d3ae7ca5c,
-        type: 2}
-      propertyPath: particleSpawnRate
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114462916931720178, guid: 5f025ca3b9161ee4e8ce876d3ae7ca5c, type: 2}
-    - {fileID: 114451909256141926, guid: 5f025ca3b9161ee4e8ce876d3ae7ca5c, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f025ca3b9161ee4e8ce876d3ae7ca5c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &960557535
@@ -454,27 +425,6 @@ GameObject:
 --- !u!1 &1637784777 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1651972902593528, guid: 313b3138f1e241442904b5cc8bb8d04c,
-    type: 2}
-  m_PrefabInternal: {fileID: 353617264}
---- !u!114 &1637784778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1637784777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92262ea5b378e3740a7b655510efa37f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentSpeed: 100
-  pointAdder: 0
-  currentSize: 0
-  playerOwnedBy: 0
-  rb: {fileID: 1637784779}
---- !u!50 &1637784779 stripped
-Rigidbody2D:
-  m_PrefabParentObject: {fileID: 50429253282726606, guid: 313b3138f1e241442904b5cc8bb8d04c,
     type: 2}
   m_PrefabInternal: {fileID: 353617264}
 --- !u!1 &2024271514

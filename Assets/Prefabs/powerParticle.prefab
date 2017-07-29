@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 212714423272334842}
   - component: {fileID: 114573563310461446}
   - component: {fileID: 50723228930775072}
+  - component: {fileID: 58657570427065564}
   m_Layer: 0
   m_Name: powerParticle
-  m_TagString: Untagged
+  m_TagString: PowerParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,6 +63,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58657570427065564
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1421658736012288}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.49
 --- !u!114 &114573563310461446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,6 +92,7 @@ MonoBehaviour:
   particleSpeed: 500
   particleTurnSpeed: 5000
   consumeDistance: 0.1
+  amountOfPowerHeld: 2
   IsConsumed: 0
 --- !u!212 &212714423272334842
 SpriteRenderer:
