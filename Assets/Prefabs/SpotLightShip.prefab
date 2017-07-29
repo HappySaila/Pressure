@@ -19,11 +19,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4574937076707976}
-  - component: {fileID: 114497078386681940}
   - component: {fileID: 50877701765796334}
   - component: {fileID: 95215663911887974}
   - component: {fileID: 58786862589140616}
-  m_Layer: 8
+  - component: {fileID: 114891903153498962}
+  m_Layer: 0
   m_Name: SpotLightShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4597126173234508}
   - component: {fileID: 108213735149471682}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ Animator:
   m_GameObject: {fileID: 1566499012928920}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2ad0d2e28fb024320b367869b231467f, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -161,7 +161,7 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114497078386681940
+--- !u!114 &114891903153498962
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -169,12 +169,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1566499012928920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bda9daa79897d4ca9ab29924865992e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 92262ea5b378e3740a7b655510efa37f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  fadeSpeed: 3
-  timeToDie: 5
-  WhiteColor: {r: 1, g: 1, b: 1, a: 1}
-  GreenColor: {r: 0.31617647, g: 1, b: 0.4340771, a: 1}
-  PurpleColor: {r: 0.91622704, g: 0.13235295, b: 1, a: 1}
+  currentSpeed: 100
+  currentPowerLevel: 0
+  player1: 0
