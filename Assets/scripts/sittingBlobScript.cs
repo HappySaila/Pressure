@@ -23,7 +23,7 @@ public class sittingBlobScript : MonoBehaviour {
 	//2=purple
 	public GameObject particleToSpawn;
 
-	float DeltaTimeCount=0;
+
 	public float particleSpawnRate;
 
 	public float percentONE;//%owned by
@@ -75,7 +75,7 @@ public class sittingBlobScript : MonoBehaviour {
 
 		switch (State) {
 		case 0://.WHITE:
-			StartCoroutine (SendParticles());
+			 SendParticles() ;
 			break;
 		case 1://.GREEN:
 
@@ -116,14 +116,16 @@ public class sittingBlobScript : MonoBehaviour {
 
 
 	public void SendParticle(GameObject owner){
-				GameObject newParticle = (GameObject)GameObject.Instantiate (particleToSpawn, transform.position, transform.rotation);
+		GameObject newParticle = (GameObject)GameObject.Instantiate (particleToSpawn, transform.position, Random.rotation );//
 				powerParticleMoveScript newParticleScript = newParticle.GetComponent<powerParticleMoveScript> ();
 				newParticleScript.setTarget (owner);
 				DeltaTimeCount = 0;
 	}
 
+	float DeltaTimeCount=0;
 
-	IEnumerator SendParticles(){
+	void SendParticles(){
+		
 		DeltaTimeCount += Time.deltaTime;
 		float particlesFor1=percentONE;
 		float particlesFor2=percentTWO;
@@ -131,7 +133,7 @@ public class sittingBlobScript : MonoBehaviour {
 
 		if (DeltaTimeCount > particleSpawnRate) {
 			while(particlesFor1>0.09f ||particlesFor2>0.09f){
-				yield return new WaitForSeconds (1.0f);
+				
 				if(particlesFor1>0.09f){
 					particlesFor1 -= 0.1f;
 					SendParticle(player1);
@@ -167,6 +169,7 @@ public class sittingBlobScript : MonoBehaviour {
 
 
 	}
+
 
 
 }
