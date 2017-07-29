@@ -68,8 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4c70872e9ca154b861e55464ad99f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thingToSpawn: {fileID: 1659489167481034, guid: 5f025ca3b9161ee4e8ce876d3ae7ca5c,
-    type: 2}
+  thingToSpawn: {fileID: 0}
 --- !u!212 &212432022822301902
 SpriteRenderer:
   m_ObjectHideFlags: 1
