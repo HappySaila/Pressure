@@ -39,9 +39,10 @@ GameObject:
   - component: {fileID: 50346718167167102}
   - component: {fileID: 95890802902485444}
   - component: {fileID: 58315678847783816}
+  - component: {fileID: 114609935773376168}
   m_Layer: 0
   m_Name: Blob
-  m_TagString: Untagged
+  m_TagString: Blob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +103,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -125,6 +126,27 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114609935773376168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1849935285549676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ad50d25b7235e41847683938a3cfd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSpeed: 100
+  turnspeed: 5
+  currentSize: 10
+  owner: {fileID: 0}
+  idleDistance: 1
+  RandumRangeMultiplyer: 0.5
+  State: 0
+  particleToSpawn: {fileID: 1421658736012288, guid: 9fa4bfc85fd20484ca13331fe351af68,
+    type: 2}
+  particleSpawnRate: 2
 --- !u!114 &114999248609511416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,4 +204,3 @@ SpriteRenderer:
   m_Size: {x: 2.19, y: 2.07}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
