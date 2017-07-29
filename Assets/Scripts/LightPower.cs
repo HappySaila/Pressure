@@ -86,6 +86,7 @@ public class LightPower : MonoBehaviour {
 		velocityDirection = Quaternion.AngleAxis(Random.Range (-45, 45), Vector3.forward) * velocityDirection;
 		rigid.velocity = velocityDirection;
 		rigid.velocity = rigid.velocity.normalized * moveSpeed;
+		print ("Running");
 	}
 			
 
