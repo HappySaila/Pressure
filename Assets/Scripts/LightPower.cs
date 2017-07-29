@@ -89,6 +89,11 @@ public class LightPower : MonoBehaviour {
 		print ("Running");
 	}
 			
-
-	
+	//effects blobs
+	void OnTriggerEnter2D(Collider2D blobTouched){
+		if (blobTouched.tag == "Blob") {
+			FollowerMainScript blobTouchedScript = blobTouched.gameObject.GetComponentInChildren<FollowerMainScript> ();
+			blobTouchedScript.setColourAndType (1);////
+		}
+}
 }

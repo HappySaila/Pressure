@@ -67,7 +67,7 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 	}
 
 	public void addpower(float amount){
-		Debug.Log ("a" + amount);
+		
 		currentPowerLevel =currentPowerLevel+ amount;
 	}
 

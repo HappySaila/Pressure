@@ -4,28 +4,8 @@ using UnityEngine;
 
 public class PresurePlateScript : MonoBehaviour {
 
-	// Use this for initialization
+
 	public int plateNumberType;
-	public int numberOfChangePoints;//numberofblobs it can effect
-	private SpriteRenderer sr;
-	void Start () {
-		sr = GetComponent <SpriteRenderer>();
-
-		switch (plateNumberType) {
-		case 0:
-			sr.color = Color.white;
-			break;
-		case 1:
-			sr.color = Color.green;
-			break;
-
-		case 2:
-			sr.color = Color.blue;
-			break;
-
-		}
-
-	}
 
 
 	// Update is called once per frame
