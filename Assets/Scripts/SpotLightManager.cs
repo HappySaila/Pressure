@@ -28,6 +28,7 @@ public class SpotLightManager : MonoBehaviour {
 		spawnPosition += Origin.position;
 		spawnPosition = ((Origin.position - spawnPosition) * spawnDistance) + Origin.position;
 		GameObject spotLight = (GameObject)Instantiate (spotLightPrefab, spawnPosition, transform.rotation);
+		print ("Running");
 	}
 
 }
