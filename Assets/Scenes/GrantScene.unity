@@ -397,35 +397,6 @@ Prefab:
       propertyPath: m_Name
       value: SpotLightShip (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 58786862589140616, guid: 6d19392c0172e40699319e07c94f228c,
-        type: 2}
-      propertyPath: m_Radius
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4597126173234508, guid: 6d19392c0172e40699319e07c94f228c, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 108213735149471682, guid: 6d19392c0172e40699319e07c94f228c,
-        type: 2}
-      propertyPath: m_Intensity
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114497078386681940, guid: 6d19392c0172e40699319e07c94f228c,
-        type: 2}
-      propertyPath: timeToDie
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114497078386681940, guid: 6d19392c0172e40699319e07c94f228c,
-        type: 2}
-      propertyPath: moveSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114497078386681940, guid: 6d19392c0172e40699319e07c94f228c,
-        type: 2}
-      propertyPath: size
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d19392c0172e40699319e07c94f228c, type: 2}
   m_IsPrefabParent: 0
@@ -474,6 +445,7 @@ MonoBehaviour:
     type: 2}
   Origin: {fileID: 1823635078}
   spawnDistance: 10
+  canSpawn: 1
 --- !u!1 &1823635077
 GameObject:
   m_ObjectHideFlags: 0

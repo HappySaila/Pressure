@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightPower : MonoBehaviour {
 	public float moveSpeed;
 	public float fadeSpeed;
-	[Range(3,6)]public float size;
+	float size;
 	public int timeToDie;
 	Vector3 destination;
 	CircleCollider2D collider;
@@ -33,23 +33,20 @@ public class LightPower : MonoBehaviour {
 		spotLight = GetComponentInChildren <Light> ();
 		SetColor ();
 		SetDestination (SpotLightManager.Instance.Origin.position);
+
+		size = Random.Range (3f, 6f);
 		transform.position += -Vector3.forward * (size - 5);
 		collider.radius = (float) (size * System.Math.Tan (Mathf.Deg2Rad * spotLight.spotAngle/2));
+		collider.radius -= collider.radius * 0.2f;
 		spotLight.intensity = size/2;
 	}
 
 	void SetColor(){
-		switch (Random.Range (0, 3)) {
-		case 0:
-			SetState (LightState.WHITE);
-			break;
-		case 1:
-			SetState (LightState.GREEN);
-			break;
-		case 2:
+		if (Random.Range (0, 2) == 0){
 			SetState (LightState.PURPLE);
-			break;
-		}
+		} else {
+			SetState (LightState.GREEN);
+		}  
 	}
 
 	void Update(){
@@ -93,7 +90,5 @@ public class LightPower : MonoBehaviour {
 		rigid.velocity = velocityDirection;
 		rigid.velocity = rigid.velocity.normalized * moveSpeed;
 	}
-			
 
-	
 }

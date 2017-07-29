@@ -7,20 +7,19 @@ public class SpotLightManager : MonoBehaviour {
 	public GameObject spotLightPrefab;
 	public Transform Origin;
 	public float spawnDistance;
+	[HideInInspector] public bool canSpawn = true;
+
 	// Use this for initialization
 	void Awake(){
 		Instance = this;
 	}
 
 	void Start () {
-		
+		StartCoroutine (StartSpawning());
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.G)){
-			SpawnSpotLight ();
-		}
 	}
 
 	void SpawnSpotLight(){
@@ -28,7 +27,16 @@ public class SpotLightManager : MonoBehaviour {
 		spawnPosition += Origin.position;
 		spawnPosition = ((Origin.position - spawnPosition) * spawnDistance) + Origin.position;
 		GameObject spotLight = (GameObject)Instantiate (spotLightPrefab, spawnPosition, transform.rotation);
-		print ("Running");
 	}
+
+	IEnumerator StartSpawning(){
+		SpawnSpotLight ();
+		yield return new WaitForSeconds (Random.Range (3, 6));
+		if (canSpawn){
+			StartCoroutine (StartSpawning ());
+		}
+	}
+
+
 
 }
