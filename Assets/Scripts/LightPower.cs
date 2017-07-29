@@ -5,12 +5,12 @@ using UnityEngine;
 public class LightPower : MonoBehaviour {
 	public float moveSpeed;
 	public float fadeSpeed;
-	float size;
 	public int timeToDie;
+
 	Vector3 destination;
-	CircleCollider2D collider;
 	Rigidbody2D rigid;
-	Light spotLight;
+	SpriteRenderer sprite;
+
 	public Color WhiteColor;
 	public Color GreenColor;
 	public Color PurpleColor;
@@ -22,31 +22,17 @@ public class LightPower : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rigid = GetComponent <Rigidbody2D> ();
-		collider = GetComponent <CircleCollider2D> ();
+		sprite = GetComponent <SpriteRenderer> ();
+
 		moveSpeed = Random.Range (moveSpeed, moveSpeed * 2);
 		rigid.velocity = destination - transform.position;
 		rigid.velocity = rigid.velocity.normalized * moveSpeed;
 		timeToDie = Random.Range (timeToDie, timeToDie * 2);
 		Invoke ("Die", timeToDie);
-		spotLight = GetComponentInChildren <Light> ();
-		SetColor ();
+
 		SetDestination (SpotLightManager.Instance.Origin.position);
-
-		size = Random.Range (3f, 6f);
-		transform.position += -Vector3.forward * (size - 5);
-		collider.radius = (float) (size * System.Math.Tan (Mathf.Deg2Rad * spotLight.spotAngle/2));
-		collider.radius -= collider.radius * 0.2f;
-		spotLight.intensity = size/2;
-	}
-
-	void SetColor(){
 		SetState (Random.Range (0, 2));
 	}
-
-	void Update(){
-		
-	}
-
 
 	void Die(){
 		//light must fade out and dissappear
@@ -55,8 +41,8 @@ public class LightPower : MonoBehaviour {
 
 	IEnumerator FadeOut(){
 		yield return new WaitForSeconds (0.01f);
-		spotLight.intensity -= fadeSpeed * Time.deltaTime;
-		if (spotLight.intensity <= 0){
+		sprite.color = new Color (sprite.color.r, sprite.color.g, sprite.color.b, sprite.color.a - fadeSpeed * Time.deltaTime);
+		if (sprite.color.a <= 0){
 			Destroy (gameObject); 
 		} else {
 			StartCoroutine (FadeOut ());
@@ -67,10 +53,10 @@ public class LightPower : MonoBehaviour {
 		this.state = state;
 		switch (this.state) {
 		case 0:
-			spotLight.color = PurpleColor;
+			sprite.color = new Color(PurpleColor.r, PurpleColor.g, PurpleColor.b, sprite.color.a);
 			break;
 		case 1:
-			spotLight.color = GreenColor;
+			sprite.color = new Color(GreenColor.r, GreenColor.g, GreenColor.b, sprite.color.a);
 			break;
 		}
 	}
@@ -84,9 +70,7 @@ public class LightPower : MonoBehaviour {
 
 	//effects blobs
 	void OnTriggerEnter2D(Collider2D blobTouched){
-		
 		if (blobTouched.tag == "Blob") {
-			
 			FollowerMainScript blobTouchedScript = blobTouched.gameObject.GetComponentInChildren<FollowerMainScript> ();
 			blobTouchedScript.setColourAndType (state);
 		}
