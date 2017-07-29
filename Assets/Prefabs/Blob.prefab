@@ -143,6 +143,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   idleDistance: 1
   RandumRangeMultiplyer: 0.5
+  purplej: {r: 0.94482756, g: 0, b: 1, a: 1}
   State: 0
   particleToSpawn: {fileID: 1421658736012288, guid: 9fa4bfc85fd20484ca13331fe351af68,
     type: 2}
