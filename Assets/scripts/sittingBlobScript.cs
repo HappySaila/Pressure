@@ -26,8 +26,8 @@ public class sittingBlobScript : MonoBehaviour {
 	float DeltaTimeCount=0;
 	public float particleSpawnRate;
 
-	private float percentONE;//%owned by
-	private float percentTWO;
+	public float percentONE;//%owned by
+	public float percentTWO;
 
 
 	// Use this for initialization
@@ -145,21 +145,36 @@ public class sittingBlobScript : MonoBehaviour {
 	}
 
 
-	void GetCaptured(int player){
+	public void Captured(int player){
 		
 		if (player == 1) {
 			if(1.0f-percentONE>percentTWO){
-				percentONE += 0.01f;
+				if(percentONE<1.0f){
+					Debug.Log (percentONE);
+					percentONE += 0.01f;
+				}
+
 			}else{
-				percentTWO-=0.01f;
-				percentONE+=0.01f;
+				if (percentTWO > 0.0f) {
+					percentTWO -= 0.01f;
+				}
+				if(percentONE>1.0f){
+					percentONE += 0.01f;
+				}
 			}
 		} else {//2
 			if(1.0f-percentTWO>percentONE){
-				percentTWO += 0.01f;
+				if(percentTWO<1.0f){
+					percentTWO += 0.01f;
+				}
+
 			}else{
-				percentONE-=0.01f;
-				percentTWO += 0.01f;
+				if (percentONE > 0.0f) {
+					percentONE -= 0.01f;
+				}
+				if(percentTWO<1.0f){
+					percentTWO += 0.01f;
+				}
 			}
 		}
 

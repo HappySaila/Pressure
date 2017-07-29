@@ -75,5 +75,21 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 		currentPowerLevel += amount;
 	}
 
+	void OnTriggerStay2D(Collider2D c){
+		
+		if (c.tag == "Blob") {
+			Debug.Log (22);
+			sittingBlobScript CaptureBlobScript=c.gameObject.GetComponent<sittingBlobScript>();
+			if(player1){
+				CaptureBlobScript.Captured (1);
+			}
+			else{
+				CaptureBlobScript.Captured (2);
+			}
+
+		}
+	}
+
+
 }
 
