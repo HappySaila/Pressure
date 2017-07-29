@@ -1,11 +1,14 @@
 fileFormatVersion: 2
 guid: f05ee5a8a2f6f4c1682b8ddf101dfde5
-timeCreated: 1501361602
+timeCreated: 1501362948
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: PowerBar_0
     21300002: PowerBar_1
+    21300004: PowerBar_2
+    21300006: PowerBar_3
+    21300008: PowerBar_4
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -123,25 +126,25 @@ TextureImporter:
       name: PowerBar_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 11
-        width: 38
-        height: 276
+        x: 8
+        y: 6
+        width: 36
+        height: 280
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PowerBar_1
+      name: PowerBar_2
       rect:
         serializedVersion: 2
-        x: 56
+        x: 51
         y: 6
-        width: 33
-        height: 277
+        width: 41
+        height: 281
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
