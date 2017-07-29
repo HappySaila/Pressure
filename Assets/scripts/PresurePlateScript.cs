@@ -8,7 +8,7 @@ public class PresurePlateScript : MonoBehaviour {
 	public int plateNumberType;
 	private SpriteRenderer sr;
 	void Start () {
-		sr = GetComponent (SpriteRenderer);
+		sr = GetComponent <SpriteRenderer>();
 
 
 		if(plateNumberType==null){
