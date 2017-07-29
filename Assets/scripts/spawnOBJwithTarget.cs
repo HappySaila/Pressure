@@ -15,15 +15,13 @@ public class spawnOBJwithTarget : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D c){
-		for (int i = 0; i < 1; i++) {///////////////////////////////////for fun
+		if(c.tag=="Blob"){
 			
-		
 		GameObject newBlob = (GameObject)GameObject.Instantiate (thingToSpawn,transform.position,transform.rotation);
 
-		
 		FollowerMainScript newBlobScript=newBlob.GetComponentInChildren<FollowerMainScript>();
 		FollowerMainScript oldBlobScript=c.gameObject.GetComponent<FollowerMainScript>();
-		newBlobScript.setOwner (oldBlobScript.owner);
+		newBlobScript.setOwner (oldBlobScript.getOwner());
 		newBlobScript.callStartMoving ();
 	
 		//yes more effent 
