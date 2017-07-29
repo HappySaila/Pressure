@@ -15,10 +15,8 @@ public class LightPower : MonoBehaviour {
 	public Color GreenColor;
 	public Color PurpleColor;
 
-	public enum LightState{
-		GREEN, PURPLE, WHITE
-	};
-	LightState state;
+
+	int state;
 
 
 	// Use this for initialization
@@ -42,11 +40,7 @@ public class LightPower : MonoBehaviour {
 	}
 
 	void SetColor(){
-		if (Random.Range (0, 2) == 0){
-			SetState (LightState.PURPLE);
-		} else {
-			SetState (LightState.GREEN);
-		}  
+		SetState (Random.Range (0, 2));
 	}
 
 	void Update(){
@@ -69,17 +63,14 @@ public class LightPower : MonoBehaviour {
 		}
 	}
 
-	public void SetState(LightState state){
+	public void SetState(int state){
 		this.state = state;
 		switch (this.state) {
-		case LightState.WHITE:
-			spotLight.color = WhiteColor;
-			break;
-		case LightState.GREEN:
-			spotLight.color = GreenColor;
-			break;
-		case LightState.PURPLE:
+		case 0:
 			spotLight.color = PurpleColor;
+			break;
+		case 1:
+			spotLight.color = GreenColor;
 			break;
 		}
 	}
@@ -91,4 +82,11 @@ public class LightPower : MonoBehaviour {
 		rigid.velocity = rigid.velocity.normalized * moveSpeed;
 	}
 
+	//effects blobs
+	void OnTriggerEnter2D(Collider2D blobTouched){
+		if (blobTouched.tag == "Blob") {
+			FollowerMainScript blobTouchedScript = blobTouched.gameObject.GetComponentInChildren<FollowerMainScript> ();
+			blobTouchedScript.setColourAndType (state);
+		}
+	}
 }
