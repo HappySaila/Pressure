@@ -75,7 +75,7 @@ public class sittingBlobScript : MonoBehaviour {
 
 		switch (State) {
 		case 0://.WHITE:
-			SendParticles();
+			StartCoroutine (SendParticles());
 			break;
 		case 1://.GREEN:
 
@@ -122,7 +122,8 @@ public class sittingBlobScript : MonoBehaviour {
 				DeltaTimeCount = 0;
 	}
 
-	public void SendParticles(){
+
+	IEnumerator SendParticles(){
 		DeltaTimeCount += Time.deltaTime;
 		float particlesFor1=percentONE;
 		float particlesFor2=percentTWO;
@@ -130,51 +131,37 @@ public class sittingBlobScript : MonoBehaviour {
 
 		if (DeltaTimeCount > particleSpawnRate) {
 			while(particlesFor1>0.09f ||particlesFor2>0.09f){
+				yield return new WaitForSeconds (1.0f);
 				if(particlesFor1>0.09f){
 					particlesFor1 -= 0.1f;
-					SendParticle (player1);
+					SendParticle(player1);
 				}
 				if(particlesFor2>0.09f){
 					particlesFor2 -= 0.1f;
-					SendParticle (player2);
+					SendParticle(player2);
 				}
 			}
 			DeltaTimeCount = 0;
 		}
-
 	}
-
 
 	public void Captured(int player){
 		
-		if (player == 1) {
+		if (player == 1&&(percentONE<1.0f)) {
 			if(1.0f-percentONE>percentTWO){
-				if(percentONE<1.0f){
-					Debug.Log (percentONE);
 					percentONE += 0.01f;
-				}
 
 			}else{
-				if (percentTWO > 0.0f) {
 					percentTWO -= 0.01f;
-				}
-				if(percentONE>1.0f){
 					percentONE += 0.01f;
-				}
 			}
-		} else {//2
+		} else if (player == 2 &&(percentTWO<1.0f)){//2
 			if(1.0f-percentTWO>percentONE){
-				if(percentTWO<1.0f){
 					percentTWO += 0.01f;
-				}
 
 			}else{
-				if (percentONE > 0.0f) {
 					percentONE -= 0.01f;
-				}
-				if(percentTWO<1.0f){
 					percentTWO += 0.01f;
-				}
 			}
 		}
 

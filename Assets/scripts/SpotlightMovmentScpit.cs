@@ -78,7 +78,7 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D c){
 		
 		if (c.tag == "Blob") {
-			Debug.Log (22);
+
 			sittingBlobScript CaptureBlobScript=c.gameObject.GetComponent<sittingBlobScript>();
 			if(player1){
 				CaptureBlobScript.Captured (1);
