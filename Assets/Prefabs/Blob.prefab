@@ -204,7 +204,7 @@ Animator:
   m_GameObject: {fileID: 1998535847425992}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 295711117f3254d39b91312554062a00, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -306,12 +306,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1: {fileID: 0}
   player2: {fileID: 0}
-  white: {r: 0.4901961, g: 0.4901961, b: 0.4901961, a: 0}
-  green: {r: 0.2392157, g: 0.8117648, b: 1, a: 0}
-  purple: {r: 0.3019608, g: 0.5686275, b: 0.7137255, a: 0}
+  white: {r: 1, g: 1, b: 1, a: 1}
+  green: {r: 0.28676468, g: 1, b: 0.35070992, a: 1}
+  purple: {r: 0.7657201, g: 0.22794116, b: 1, a: 1}
   particleToSpawn: {fileID: 1421658736012288, guid: 9fa4bfc85fd20484ca13331fe351af68,
     type: 2}
   particleSpawnRate: 2
+  percentONE: 0
+  percentTWO: 0
 --- !u!114 &114689291640309848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -416,6 +418,7 @@ SpriteRenderer:
   m_Size: {x: 2.19, y: 2.07}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
 --- !u!222 &222475811330343886
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class sittingBlobScript : MonoBehaviour {
 
 
 	public GameObject player1;
 	public GameObject player2;
+
+	public Image Player1Bar;
+	public Image Player2Bar;
 
 	public Color white;//0
 	public Color green;//1
@@ -111,10 +115,6 @@ public class sittingBlobScript : MonoBehaviour {
 
 	}
 
-
-
-
-
 	public void SendParticle(GameObject owner){
 				GameObject newParticle = (GameObject)GameObject.Instantiate (particleToSpawn, transform.position, transform.rotation);
 				powerParticleMoveScript newParticleScript = newParticle.GetComponent<powerParticleMoveScript> ();
@@ -144,13 +144,25 @@ public class sittingBlobScript : MonoBehaviour {
 
 	}
 
+	void OnTriggerStay2D(Collider2D c){
+
+		if (c.tag == "PlayerSpotLight") {
+			if(player1){
+				Captured (1);
+			}
+			else{
+				Captured (2);
+			}
+
+		}
+	}
+
 
 	public void Captured(int player){
 		
 		if (player == 1) {
 			if(1.0f-percentONE>percentTWO){
 				if(percentONE<1.0f){
-					Debug.Log (percentONE);
 					percentONE += 0.01f;
 				}
 
@@ -177,8 +189,6 @@ public class sittingBlobScript : MonoBehaviour {
 				}
 			}
 		}
-
-
 	}
 
 

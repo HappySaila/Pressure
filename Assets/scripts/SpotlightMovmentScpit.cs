@@ -7,6 +7,7 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 
 
 	public float currentSpeed;
+	public int maxPowerLevel;
 	public float currentPowerLevel;
 	public bool player1;
 
@@ -16,7 +17,7 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
-
+		maxPowerLevel = 1000;
 	}
 	
 	// Update is called once per frame
@@ -73,12 +74,14 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 
 	public void addpower(float amount){
 		currentPowerLevel += amount;
+		currentPowerLevel = Mathf.Clamp (currentPowerLevel, 0, maxPowerLevel);
+		//sets the UI components
+		HudManager.Instance.UpdatePowerSource (player1, currentPowerLevel/maxPowerLevel);
 	}
 
 	void OnTriggerStay2D(Collider2D c){
 		
 		if (c.tag == "Blob") {
-			Debug.Log (22);
 			sittingBlobScript CaptureBlobScript=c.gameObject.GetComponent<sittingBlobScript>();
 			if(player1){
 				CaptureBlobScript.Captured (1);
