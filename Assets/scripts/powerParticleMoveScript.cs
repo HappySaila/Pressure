@@ -45,8 +45,6 @@ public class powerParticleMoveScript : MonoBehaviour {
 		UpdateMovementAndOrientation ();
 		amountOfPowerHeld +=Time.deltaTime;
 		SizeTracker += 0.001f;
-		//Debug.Log (SizeTracker);
-
 		//transform.localScale = new Vector3 (SizeTracker, SizeTracker, 0f);
 	}
 
@@ -89,7 +87,8 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 		if (c.tag =="PlayerSpotLight") {
 			IsConsumed = true;
-			TargetSpotlightMovmentScpit.addpower (amountOfPowerHeld);//increment power of player
+			Debug.LogFormat("power {0}", amountOfPowerHeld);
+			TargetSpotlightMovmentScpit.addpower (amountOfPowerHeld * amountOfPowerHeld * 10);//increment power of player
 
 			Destroy (gameObject);
 		}

@@ -894,11 +894,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0cd052201894979b63eb64d07dc25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBlobs: 4
+  maxBlobs: 10
   currentBlobs: 0
   blobInstance: {fileID: 1835529332678554, guid: 28155b7e0f82c47b6b49cf261a70c4c6,
     type: 2}
   spawnRate: 2
+  canSpawn: 0
 --- !u!1 &786098943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,6 +1149,7 @@ MonoBehaviour:
   currentPowerLevel: 670
   player1: 1
   canMove: 0
+  movmentPowerCost: 0.5
 --- !u!58 &992740899
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1371,6 +1373,7 @@ MonoBehaviour:
   currentPowerLevel: 670
   player1: 0
   canMove: 0
+  movmentPowerCost: 0.5
 --- !u!95 &1201675319
 Animator:
   serializedVersion: 3
@@ -1641,11 +1644,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4089972031012450, guid: 28155b7e0f82c47b6b49cf261a70c4c6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.066046
+      value: 1.414
       objectReference: {fileID: 0}
     - target: {fileID: 4089972031012450, guid: 28155b7e0f82c47b6b49cf261a70c4c6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.3994
+      value: 0.037
       objectReference: {fileID: 0}
     - target: {fileID: 4089972031012450, guid: 28155b7e0f82c47b6b49cf261a70c4c6, type: 2}
       propertyPath: m_LocalPosition.z

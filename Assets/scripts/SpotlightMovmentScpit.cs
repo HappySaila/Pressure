@@ -21,18 +21,22 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		maxPowerLevel = 1000;
+		movmentPowerCost *= -1;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (canMove){
 			UpdatePlayerMovement ();
+			addpower (movmentPowerCost);//while moveing you lose power
 		}
-
-
-
-
 	}
+
+	public void StartUp(){
+		canMove = true;
+		currentPowerLevel = 0.5f * maxPowerLevel;
+	}
+
 	void UpdatePlayerMovement(){
 		
 
@@ -77,8 +81,8 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 		}
 
 		rb.velocity = movement.normalized * currentSpeed * Time.deltaTime;
+
 		if (movement.magnitude != 0){
-			addpower (movmentPowerCost);//while moveing you lose power
 			float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
 			Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
 
@@ -114,12 +118,12 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 				break;
 			case 1://.GREEN:
 				addpower(50);
-				Destroy (blobTouched.gameObject);
+				Destroy (blobTouched.transform.parent.gameObject);
 
 				break;
 			case 2://.PURPLE:
 				addpower(-150);
-				Destroy (blobTouched.gameObject);
+				Destroy (blobTouched.transform.parent.gameObject);
 				break;
 			}
 

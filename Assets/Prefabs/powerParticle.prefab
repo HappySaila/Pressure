@@ -92,11 +92,11 @@ MonoBehaviour:
   particleSpeed: 200
   particleTurnSpeed: 7
   consumeDistance: 0.1
-  amountOfPowerHeld: 10
+  amountOfPowerHeld: 0
   IsConsumed: 0
   waitTimeforMovment: 0.1
-  green: {r: 0.12941177, g: 0.5137255, b: 0.24313727, a: 0}
-  purple: {r: 0.5176471, g: 0.13725491, b: 0.6156863, a: 0}
+  green: {r: 0, g: 0, b: 0, a: 0}
+  purple: {r: 0, g: 0, b: 0, a: 0}
   timeToLiveFor: 3
 --- !u!212 &212714423272334842
 SpriteRenderer:
@@ -138,3 +138,4 @@ SpriteRenderer:
   m_Size: {x: 0.78, y: 0.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1

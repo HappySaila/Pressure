@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	public Transform Player1SpawnPosition;
 	public Transform Player2SpawnPosition;
 
+	bool Restarting;
+
 	void Awake(){
 		instance = this;
 	}
@@ -46,8 +48,8 @@ public class GameManager : MonoBehaviour {
 		CountDownTimer.Instance.StartCountDownTimer ();
 		yield return new WaitUntil (() => CountDownTimer.Instance.gameStarted);
 
-		Player1.GetComponent <SpotlightMovmentScpit>().canMove = true;
-		Player2.GetComponent <SpotlightMovmentScpit>().canMove = true;
+		Player1.GetComponent <SpotlightMovmentScpit> ().StartUp ();
+		Player2.GetComponent <SpotlightMovmentScpit> ().StartUp ();
 		BlobManager.Instance.canSpawn = true;
 	}
 	
@@ -61,13 +63,17 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void PlayerDied(bool Player1){
+		if (Restarting){
+			return;
+		}
+
+		Restarting = true;
 		StartCoroutine (RestartRound(Player1));
 	}
 
 	IEnumerator RestartRound(bool player1Died){
 		//make sure both players are dead before restarting the round
-		Player1.GetComponent <Rigidbody2D>().velocity = Vector2.zero;
-		Player2.GetComponent <Rigidbody2D>().velocity = Vector2.zero;
+
 		yield return new WaitForSeconds (5f);
 		if (player1Died){
 			Player2.GetComponent <Animator>().SetTrigger ("Die");
@@ -80,8 +86,12 @@ public class GameManager : MonoBehaviour {
 		Player1.transform.position = Player1SpawnPosition.position;
 		Player2.transform.position = Player2SpawnPosition.position;
 
+		Player1.GetComponent <SpotlightMovmentScpit> ().StartUp ();
+		Player2.GetComponent <SpotlightMovmentScpit> ().StartUp ();
 		Player1.GetComponent <SpotlightMovmentScpit>().canMove = false;
 		Player2.GetComponent <SpotlightMovmentScpit>().canMove = false;
+		Player1.GetComponent <Rigidbody2D>().velocity = Vector2.zero;
+		Player2.GetComponent <Rigidbody2D>().velocity = Vector2.zero;
 
 		Player1.GetComponent <Animator>().SetTrigger ("Revive");
 		yield return new WaitForSeconds (0.5f);
@@ -97,5 +107,8 @@ public class GameManager : MonoBehaviour {
 		Player1.GetComponent <SpotlightMovmentScpit>().canMove = true;
 		Player2.GetComponent <SpotlightMovmentScpit>().canMove = true;
 		BlobManager.Instance.canSpawn = true;
+
+		//finished restarting game
+		Restarting = false;
 	}
 }

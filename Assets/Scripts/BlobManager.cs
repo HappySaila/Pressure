@@ -22,12 +22,11 @@ public class BlobManager : MonoBehaviour {
 	
 	IEnumerator SpawnBlobs(){
 			currentBlobs = GameObject.FindObjectsOfType <sittingBlobScript> ().Length;
-			yield return new WaitUntil (() => currentBlobs < maxBlobs);
 			yield return new WaitForSeconds (Random.Range (spawnRate,spawnRate*2));
 			float x = Random.Range (-7f,7f);
 			float y = Random.Range (-4f,4f);
 			Vector3 position = new Vector3 (x,y,0);
-		if (canSpawn){
+		if (canSpawn && currentBlobs < maxBlobs){
 			Instantiate (blobInstance, position, transform.rotation);
 		}
 			StartCoroutine (SpawnBlobs());
