@@ -79,6 +79,15 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 		currentPowerLevel = Mathf.Clamp (currentPowerLevel, 0, maxPowerLevel);
 		//sets the UI components
 		HudManager.Instance.UpdatePowerSource (player1, currentPowerLevel/maxPowerLevel);
+		if (currentPowerLevel == 0){
+			Die ();
+		}
+	}
+
+	void Die(){
+		GetComponent <Animator>().SetTrigger ("Die");
+		canMove = false;
+		GameManager.instance.PlayerDied (player1);
 	}
 	//effects blobs
 	void OnTriggerEnter2D(Collider2D blobTouched){

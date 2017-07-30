@@ -27,6 +27,7 @@ public class CountDownTimer : MonoBehaviour {
 	}
 
 	public void StartCountDownTimer(){
+		count = 3;
 		text.enabled = true;
 		text.text = count+"";
 		anim.SetTrigger ("StartCountDown");
