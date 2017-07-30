@@ -10,6 +10,7 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 	public int maxPowerLevel;
 	public float currentPowerLevel;
 	public bool player1;
+	[HideInInspector] public bool canMove = false;
 
 	Vector2 movement;
 
@@ -22,8 +23,9 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		UpdatePlayerMovement ();
+		if (canMove){
+			UpdatePlayerMovement ();
+		}
 	}
 	void UpdatePlayerMovement(){
 		if (player1) {//player true
