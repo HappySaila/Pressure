@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour {
 
 		Player1.GetComponent <SpotlightMovmentScpit>().canMove = true;
 		Player2.GetComponent <SpotlightMovmentScpit>().canMove = true;
-
+		BlobManager.Instance.canSpawn = true;
 	}
 	
 	// Update is called once per frame
