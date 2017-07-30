@@ -40,37 +40,24 @@ public class sittingBlobScript : MonoBehaviour {
 		rb = GetComponentInChildren<Rigidbody2D>();
 
 		setState (0);
+		SetPlayers ();
+	}
 
+	void SetPlayers(){
+		SpotlightMovmentScpit[] players = GameObject.FindObjectsOfType <SpotlightMovmentScpit> ();
+		if (players[0].player1){
+			player1 = players [0].gameObject;
+			player2 = players [1].gameObject;
+		} else {				 
+			player1 = players [1].gameObject;
+			player2 = players [0].gameObject;
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		JamesLookAt ();
 		Behave ();
 	}
-
-	void JamesLookAt(){
-		GameObject owner;
-		if (percentONE > percentTWO) {
-			owner = player1;
-		} else if(percentONE < percentTWO){
-			owner = player2;
-		}else{
-			owner=null;
-		}
-
-
-
-		if(	owner != null){
-			Vector3 vectorToTarget = owner.transform.position - transform.position;
-			float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-			Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-
-			transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 5);
-		}
-
-	}
-
 
 	void Behave(){
 		//0=white
@@ -148,7 +135,7 @@ public class sittingBlobScript : MonoBehaviour {
 	void OnTriggerStay2D(Collider2D c){
 
 		if (c.tag == "PlayerSpotLight") {
-			if(player1){
+			if(c.gameObject.GetComponent <SpotlightMovmentScpit>().player1){
 				Captured (1);
 			}
 			else{

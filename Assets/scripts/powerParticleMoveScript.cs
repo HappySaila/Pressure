@@ -18,7 +18,11 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+		Invoke ("Die", 10);
+	}
 
+	void Die(){
+		Destroy (gameObject);
 	}
 	
 	// Update is called once per frame
@@ -63,7 +67,6 @@ public class powerParticleMoveScript : MonoBehaviour {
 			TargetSpotlightMovmentScpit.addpower (amountOfPowerHeld);//increment power of player
 
 
-			//
 			Destroy (gameObject);
 		}
 	}
