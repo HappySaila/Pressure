@@ -94,7 +94,7 @@ MonoBehaviour:
   consumeDistance: 0.1
   amountOfPowerHeld: 2
   IsConsumed: 0
-  waitTimeforMovment: 0.001
+  waitTimeforMovment: 10
 --- !u!212 &212925115874964656
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -128,7 +128,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300006, guid: 50e11a9e7f8914c7b91df606a740dee2, type: 3}
-  m_Color: {r: 0.6995914, g: 0.72794116, b: 0.21410033, a: 1}
+  m_Color: {r: 0.34180892, g: 0.16349483, b: 0.7941176, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -108,10 +108,13 @@ public class sittingBlobScript : MonoBehaviour {
 	}
 
 	public void SendParticle(GameObject owner,GameObject sendParticle, int charge){
-		GameObject newParticle = (GameObject)GameObject.Instantiate (sendParticle, transform.position, Random.rotation );//
-				powerParticleMoveScript newParticleScript = newParticle.GetComponent<powerParticleMoveScript> ();
-				newParticleScript.setTargetAndCharge (owner,charge);
-				DeltaTimeCount = 0;
+		
+			GameObject newParticle = (GameObject)GameObject.Instantiate (sendParticle, transform.position, Random.rotation );
+			powerParticleMoveScript newParticleScript = newParticle.GetComponent<powerParticleMoveScript> ();
+			newParticleScript.setTargetAndCharge (owner,charge);
+		
+			
+			DeltaTimeCount = 0;
 	}
 
 
