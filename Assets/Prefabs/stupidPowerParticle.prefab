@@ -92,9 +92,10 @@ MonoBehaviour:
   particleSpeed: 50
   particleTurnSpeed: 5000
   consumeDistance: 0.1
-  amountOfPowerHeld: 2
+  amountOfPowerHeld: 10
   IsConsumed: 0
   waitTimeforMovment: 10
+  timeToLiveFor: 1
 --- !u!212 &212925115874964656
 SpriteRenderer:
   m_ObjectHideFlags: 1

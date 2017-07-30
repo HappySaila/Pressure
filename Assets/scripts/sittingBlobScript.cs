@@ -96,7 +96,7 @@ public class sittingBlobScript : MonoBehaviour {
 
 
 		State = newState;
-		switch (newState) {
+		switch (State) {
 		case 0:
 			sr.color = white;
 			break;
@@ -107,7 +107,7 @@ public class sittingBlobScript : MonoBehaviour {
 			sr.color = purple;
 			break;
 		}
-		Debug.Log ("touched"+State);
+
 	}
 
 	void SendParticle(GameObject owner,GameObject sendParticle, int charge){
@@ -118,13 +118,30 @@ public class sittingBlobScript : MonoBehaviour {
 
 			newParticleScript.setColourOfParticle (sr.color);
 	}
-
+	//for sendParticle methor
 	float cutoff=0.18f;
 	float step= 0.2f;
+	//
+
 	IEnumerator SendParticles(GameObject sendParticle,int charge){
 		//sendsparticle burst
 		float particlesFor1 = percentONE;
 		float particlesFor2 = percentTWO;
+
+		switch (State) {
+		case 0://white
+			cutoff=0.18f;
+			step= 0.2f;
+			break;
+		case 1://green
+			cutoff=0.09f;
+			step= 0.1f;
+			break;
+		case 2://purp
+			cutoff=0.0135f;
+			step= 0.015f;
+			break;
+		}
 
 
 		while (particlesFor1 > cutoff || particlesFor2 > cutoff) {

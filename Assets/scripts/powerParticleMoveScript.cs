@@ -24,11 +24,12 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 	private int chargeOfparticle; //1 or -1   
 
+	public int timeToLiveFor;
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 
 
-		Invoke ("Die", 3);
+		Invoke ("Die", timeToLiveFor);
 		StartCoroutine (activateMovement());
 		SizeTracker = transform.localScale.x;
 	}
