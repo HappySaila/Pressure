@@ -22,7 +22,9 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 	public float waitTimeforMovment;//=0.001f
 
-	private int chargeOfparticle; //1 or -1   
+	public Color green;
+	public Color purple;
+
 
 	public int timeToLiveFor;
 	void Start () {
@@ -73,10 +75,10 @@ public class powerParticleMoveScript : MonoBehaviour {
 		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * particleTurnSpeed);
 	}
 
-	public void setTargetAndCharge(GameObject newTarget,int inCharge){
+	public void setTarget(GameObject newTarget){
 		Target = newTarget;
 		TargetSpotlightMovmentScpit = Target.GetComponent<SpotlightMovmentScpit> ();
-		chargeOfparticle = inCharge;
+
 	}
 
 	public GameObject getTarget(){
@@ -87,11 +89,21 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 		if (c.tag =="PlayerSpotLight") {
 			IsConsumed = true;
-			TargetSpotlightMovmentScpit.addpower (chargeOfparticle * amountOfPowerHeld);//increment power of player
-
+			TargetSpotlightMovmentScpit.addpower (amountOfPowerHeld);//increment power of player
 
 			Destroy (gameObject);
 		}
+		else if (c.tag =="greenPlate") {
+
+			setColourOfParticle (green);
+			amountOfPowerHeld = Mathf.Abs (amountOfPowerHeld);
+		}
+		else if (c.tag =="purplePlate") {
+
+			setColourOfParticle (purple);
+			amountOfPowerHeld = (-1f)*(Mathf.Abs (amountOfPowerHeld));
+		}
+
 	}
 
 

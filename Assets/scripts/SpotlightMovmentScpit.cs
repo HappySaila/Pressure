@@ -97,7 +97,7 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 
 				break;
 			case 2://.PURPLE:
-				addpower(-50);
+				addpower(-150);
 				Destroy (blobTouched.gameObject);
 				break;
 			}
