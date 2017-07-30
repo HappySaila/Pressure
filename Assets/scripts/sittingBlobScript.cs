@@ -72,14 +72,14 @@ public class sittingBlobScript : MonoBehaviour {
 
 		switch (State) {
 		case 0://.WHITE:
-			StartCoroutine (SendParticles(particleToSpawn,1));
+			StartCoroutine (SendParticles(particleToSpawn));
 			break;
 		case 1://.GREEN:
-			StartCoroutine (SendParticles(particleToSpawn,-1));
+			StartCoroutine (SendParticles(particleToSpawn));
 
 			break;
 		case 2://.PURPLE:
-			StartCoroutine (SendParticles(particleToSpawnNoDirection,1));
+			StartCoroutine (SendParticles(particleToSpawnNoDirection));
 			break;
 		}
 	}
@@ -110,20 +110,24 @@ public class sittingBlobScript : MonoBehaviour {
 
 	}
 
-	void SendParticle(GameObject owner,GameObject sendParticle, int charge){
+	void SendParticle(GameObject owner,GameObject sendParticle){
 		
 			GameObject newParticle = (GameObject)GameObject.Instantiate (sendParticle, transform.position, Random.rotation );
 			powerParticleMoveScript newParticleScript = newParticle.GetComponent<powerParticleMoveScript> ();
-			newParticleScript.setTargetAndCharge (owner,charge);
-
+			newParticleScript.setTarget (owner);
+		if (State == 0) {
+			newParticleScript.setColourOfParticle (green);//white blobs shoot gree particles
+		} else {
 			newParticleScript.setColourOfParticle (sr.color);
+		}
+			
 	}
 	//for sendParticle methor
 	float cutoff=0.18f;
 	float step= 0.2f;
 	//
 
-	IEnumerator SendParticles(GameObject sendParticle,int charge){
+	IEnumerator SendParticles(GameObject sendParticle){
 		//sendsparticle burst
 		float particlesFor1 = percentONE;
 		float particlesFor2 = percentTWO;
@@ -148,11 +152,11 @@ public class sittingBlobScript : MonoBehaviour {
 			yield return new WaitForSeconds (step);
 			if (particlesFor1 > cutoff) {
 				particlesFor1 -= step;
-				SendParticle (player1, sendParticle, charge);
+				SendParticle (player1, sendParticle);
 			}
 			if (particlesFor2 > cutoff) {
 				particlesFor2 -= step;
-				SendParticle (player2, sendParticle, charge);
+				SendParticle (player2, sendParticle);
 			}
 		}
 	}

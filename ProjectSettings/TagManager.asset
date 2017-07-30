@@ -7,6 +7,9 @@ TagManager:
   - PlayerSpotLight
   - Blob
   - PowerParticle
+  - PresurePlate
+  - purplePlate
+  - greanPlate
   layers:
   - Default
   - TransparentFX

@@ -53,10 +53,12 @@ public class LightPower : MonoBehaviour {
 		this.state = state;
 		switch (this.state) {
 		case 2:
-			sprite.color = new Color(PurpleColor.r, PurpleColor.g, PurpleColor.b, sprite.color.a);
+			sprite.color = new Color (PurpleColor.r, PurpleColor.g, PurpleColor.b, sprite.color.a);
+			gameObject.tag = "purplePlate";
 			break;
 		case 1:
 			sprite.color = new Color(GreenColor.r, GreenColor.g, GreenColor.b, sprite.color.a);
+			gameObject.tag = "greanPlate";
 			break;
 		
 		}

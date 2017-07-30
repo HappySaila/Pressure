@@ -92,9 +92,11 @@ MonoBehaviour:
   particleSpeed: 50
   particleTurnSpeed: 5000
   consumeDistance: 0.1
-  amountOfPowerHeld: 10
+  amountOfPowerHeld: -10
   IsConsumed: 0
   waitTimeforMovment: 10
+  green: {r: 0.16470589, g: 0.6627451, b: 0.30980393, a: 0}
+  purple: {r: 0.5372549, g: 0.14117648, b: 0.6431373, a: 0}
   timeToLiveFor: 1
 --- !u!212 &212925115874964656
 SpriteRenderer:
