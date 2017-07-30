@@ -21,7 +21,7 @@ public class sittingBlobScript : MonoBehaviour {
 
 	bool isidle = false;
 	public float spawnDelay;
-
+		
 	private int State;
 	//0=white
 	//1=green
@@ -86,6 +86,7 @@ public class sittingBlobScript : MonoBehaviour {
 
 
 	public int getState(){
+		
 		return State;
 	}
 	public void setState(int newState){
@@ -106,7 +107,7 @@ public class sittingBlobScript : MonoBehaviour {
 			sr.color = purple;
 			break;
 		}
-
+		Debug.Log ("touched"+State);
 	}
 
 	void SendParticle(GameObject owner,GameObject sendParticle, int charge){
@@ -114,22 +115,26 @@ public class sittingBlobScript : MonoBehaviour {
 			GameObject newParticle = (GameObject)GameObject.Instantiate (sendParticle, transform.position, Random.rotation );
 			powerParticleMoveScript newParticleScript = newParticle.GetComponent<powerParticleMoveScript> ();
 			newParticleScript.setTargetAndCharge (owner,charge);
+
+			newParticleScript.setColourOfParticle (sr.color);
 	}
 
+	float cutoff=0.18f;
+	float step= 0.2f;
 	IEnumerator SendParticles(GameObject sendParticle,int charge){
 		//sendsparticle burst
 		float particlesFor1 = percentONE;
 		float particlesFor2 = percentTWO;
 
 
-		while (particlesFor1 > 0.09f || particlesFor2 > 0.09f) {
-			yield return new WaitForSeconds (0.1f);
-			if (particlesFor1 > 0.09f) {
-				particlesFor1 -= 0.1f;
+		while (particlesFor1 > cutoff || particlesFor2 > cutoff) {
+			yield return new WaitForSeconds (step);
+			if (particlesFor1 > cutoff) {
+				particlesFor1 -= step;
 				SendParticle (player1, sendParticle, charge);
 			}
-			if (particlesFor2 > 0.09f) {
-				particlesFor2 -= 0.1f;
+			if (particlesFor2 > cutoff) {
+				particlesFor2 -= step;
 				SendParticle (player2, sendParticle, charge);
 			}
 		}
@@ -175,5 +180,7 @@ public class sittingBlobScript : MonoBehaviour {
 		Player1Bar.fillAmount = percentONE;
 		Player2Bar.fillAmount = percentTWO;
 	}
+
+
 
 }

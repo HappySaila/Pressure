@@ -80,9 +80,28 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 	}
 	//effects blobs
 	void OnTriggerEnter2D(Collider2D blobTouched){
+		
 		if (blobTouched.tag == "Blob") {
 			sittingBlobScript blobTouchedScript = blobTouched.gameObject.GetComponentInChildren<sittingBlobScript> ();
-			blobTouchedScript.setState (0);
+			//blobTouchedScript.setState (0);
+
+			switch (blobTouchedScript.getState()) {
+			case 0://.WHITE:
+				//nothing
+				break;
+			case 1://.GREEN:
+				addpower(50);
+				Destroy (blobTouched.gameObject);
+
+				break;
+			case 2://.PURPLE:
+				addpower(-50);
+				Destroy (blobTouched.gameObject);
+				break;
+			}
+
+
+
 		}
 	}
 
