@@ -19,7 +19,9 @@ public class powerParticleMoveScript : MonoBehaviour {
 	float SizeTracker;
 
 	public float waitTimeforMovment;//=0.001f
-	private int chargeOfparticle; //1 or -1
+
+	private int chargeOfparticle; //1 or -1   
+
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		Invoke ("Die", 10);
@@ -90,7 +92,9 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 
 	IEnumerator activateMovement(){
-		
+		yield return new WaitForSeconds (0.01f);
+		transform.rotation = new Quaternion (0f, 0f, transform.rotation.z, transform.rotation.w);
+
 		yield return new WaitForSeconds (waitTimeforMovment);
 		canMove = true;
 	}
