@@ -16,11 +16,13 @@ public class powerParticleMoveScript : MonoBehaviour {
 	private Rigidbody2D rb;
 	private SpotlightMovmentScpit TargetSpotlightMovmentScpit;
 	bool canMove;
+	float SizeTracker;
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		Invoke ("Die", 10);
 		StartCoroutine (activateMovement());
+		SizeTracker = transform.localScale.x;
 	}
 
 	void Die(){
@@ -29,7 +31,12 @@ public class powerParticleMoveScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-			UpdateMovementAndOrientation ();
+		UpdateMovementAndOrientation ();
+		amountOfPowerHeld +=Time.deltaTime;
+		SizeTracker += 0.001f;
+		Debug.Log (SizeTracker);
+
+		//transform.localScale = new Vector3 (SizeTracker, SizeTracker, 0f);
 	}
 
 	void UpdateMovementAndOrientation(){
@@ -54,7 +61,7 @@ public class powerParticleMoveScript : MonoBehaviour {
 	
 		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
 
-		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 5);
+		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 500);
 	}
 
 	public void setTarget(GameObject newTarget){
@@ -79,7 +86,7 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 
 	IEnumerator activateMovement(){
-		yield return new WaitForSeconds (0.3f);
+		yield return new WaitForSeconds (0.001f);
 		canMove = true;
 	}
 
