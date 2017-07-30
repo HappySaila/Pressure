@@ -15,10 +15,12 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 	private Rigidbody2D rb;
 	private SpotlightMovmentScpit TargetSpotlightMovmentScpit;
+	bool canMove;
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		Invoke ("Die", 10);
+		StartCoroutine (activateMovement());
 	}
 
 	void Die(){
@@ -27,7 +29,7 @@ public class powerParticleMoveScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		UpdateMovementAndOrientation();
+			UpdateMovementAndOrientation ();
 	}
 
 	void UpdateMovementAndOrientation(){
@@ -39,7 +41,9 @@ public class powerParticleMoveScript : MonoBehaviour {
 				IsConsumed = false;
 				rb.velocity = transform.right * Time.deltaTime * particleSpeed;
 			}
+		if (canMove) {
 			JamesLookAt ();
+			}
 		}
 	}
 
@@ -47,9 +51,10 @@ public class powerParticleMoveScript : MonoBehaviour {
 	void JamesLookAt(){
 		Vector3 vectorToTarget = Target.transform.position - transform.position;
 		float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+	
 		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
 
-		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * particleTurnSpeed);
+		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 5);
 	}
 
 	public void setTarget(GameObject newTarget){
@@ -70,5 +75,13 @@ public class powerParticleMoveScript : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+
+
+
+	IEnumerator activateMovement(){
+		yield return new WaitForSeconds (0.3f);
+		canMove = true;
+	}
+
 
 }
