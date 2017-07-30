@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class sittingBlobScript : MonoBehaviour {
 
 
-	public GameObject player1;
-	public GameObject player2;
+	GameObject player1;
+	GameObject player2;
 
 	public Image Player1Bar;
 	public Image Player2Bar;
