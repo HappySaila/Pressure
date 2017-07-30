@@ -26,13 +26,14 @@ public class sittingBlobScript : MonoBehaviour {
 	//1=green
 	//2=purple
 	public GameObject particleToSpawn;
-
+	public GameObject particleToSpawnNoDirection;
 
 	public float particleSpawnRate;
 
-	public float percentONE;//%owned by
-	public float percentTWO;
+	float percentONE;//%owned by
+	float percentTWO;
 
+	float DeltaTimeCount=0;
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +42,10 @@ public class sittingBlobScript : MonoBehaviour {
 
 		setState (0);
 		SetPlayers ();
+
+		percentONE = 0.02f;
+		percentTWO = 0.02f;
+		updateOwnerShipBars ();
 	}
 
 	void SetPlayers(){
@@ -66,13 +71,13 @@ public class sittingBlobScript : MonoBehaviour {
 
 		switch (State) {
 		case 0://.WHITE:
-			 SendParticles() ;
+			SendParticles(particleToSpawn,1) ;
 			break;
 		case 1://.GREEN:
-
+			SendParticles(particleToSpawn,-1) ;
 			break;
 		case 2://.PURPLE:
-
+			SendParticles(particleToSpawnNoDirection,1) ;
 			break;
 		}
 	}
@@ -102,16 +107,16 @@ public class sittingBlobScript : MonoBehaviour {
 
 	}
 
-	public void SendParticle(GameObject owner){
-		GameObject newParticle = (GameObject)GameObject.Instantiate (particleToSpawn, transform.position, Random.rotation );//
+	public void SendParticle(GameObject owner,GameObject sendParticle, int charge){
+		GameObject newParticle = (GameObject)GameObject.Instantiate (sendParticle, transform.position, Random.rotation );//
 				powerParticleMoveScript newParticleScript = newParticle.GetComponent<powerParticleMoveScript> ();
-				newParticleScript.setTarget (owner);
+				newParticleScript.setTargetAndCharge (owner,charge);
 				DeltaTimeCount = 0;
 	}
 
-	float DeltaTimeCount=0;
 
-	void SendParticles(){
+
+	void SendParticles(GameObject sendParticle,int charge){
 		
 		DeltaTimeCount += Time.deltaTime;
 		float particlesFor1=percentONE;
@@ -123,11 +128,11 @@ public class sittingBlobScript : MonoBehaviour {
 				
 				if(particlesFor1>0.09f){
 					particlesFor1 -= 0.1f;
-					SendParticle(player1);
+					SendParticle(player1,sendParticle,charge);
 				}
 				if(particlesFor2>0.09f){
 					particlesFor2 -= 0.1f;
-					SendParticle(player2);
+					SendParticle(player2,sendParticle,charge);
 				}
 			}
 			DeltaTimeCount = 0;
@@ -166,10 +171,13 @@ public class sittingBlobScript : MonoBehaviour {
 			}
 		}
 
+		updateOwnerShipBars ();
+
+	}
+
+	void updateOwnerShipBars (){
 		Player1Bar.fillAmount = percentONE;
 		Player2Bar.fillAmount = percentTWO;
 	}
-
-
 
 }

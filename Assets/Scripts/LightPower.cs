@@ -31,7 +31,7 @@ public class LightPower : MonoBehaviour {
 		Invoke ("Die", timeToDie);
 
 		SetDestination (SpotLightManager.Instance.Origin.position);
-		SetState (Random.Range (0, 2));
+		SetState (Random.Range (1, 3));
 	}
 
 	void Die(){
@@ -52,12 +52,13 @@ public class LightPower : MonoBehaviour {
 	public void SetState(int state){
 		this.state = state;
 		switch (this.state) {
-		case 0:
+		case 2:
 			sprite.color = new Color(PurpleColor.r, PurpleColor.g, PurpleColor.b, sprite.color.a);
 			break;
 		case 1:
 			sprite.color = new Color(GreenColor.r, GreenColor.g, GreenColor.b, sprite.color.a);
 			break;
+		
 		}
 	}
 

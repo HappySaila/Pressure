@@ -286,9 +286,9 @@ MonoBehaviour:
   purple: {r: 0.8279918, g: 0.2205882, b: 1, a: 1}
   particleToSpawn: {fileID: 1421658736012288, guid: 9fa4bfc85fd20484ca13331fe351af68,
     type: 2}
-  particleSpawnRate: 1
-  percentONE: 0
-  percentTWO: 0
+  particleToSpawnNoDirection: {fileID: 1232776094647620, guid: e790326f46e6c654d9ec6bc0ba69bc20,
+    type: 2}
+  particleSpawnRate: 2
 --- !u!114 &114945887151927262
 MonoBehaviour:
   m_ObjectHideFlags: 1

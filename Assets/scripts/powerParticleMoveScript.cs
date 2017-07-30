@@ -18,6 +18,8 @@ public class powerParticleMoveScript : MonoBehaviour {
 	bool canMove;
 	float SizeTracker;
 
+	public float waitTimeforMovment;//=0.001f
+	private int chargeOfparticle; //1 or -1
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		Invoke ("Die", 10);
@@ -34,7 +36,7 @@ public class powerParticleMoveScript : MonoBehaviour {
 		UpdateMovementAndOrientation ();
 		amountOfPowerHeld +=Time.deltaTime;
 		SizeTracker += 0.001f;
-		Debug.Log (SizeTracker);
+		//Debug.Log (SizeTracker);
 
 		//transform.localScale = new Vector3 (SizeTracker, SizeTracker, 0f);
 	}
@@ -64,10 +66,12 @@ public class powerParticleMoveScript : MonoBehaviour {
 		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 500);
 	}
 
-	public void setTarget(GameObject newTarget){
+	public void setTargetAndCharge(GameObject newTarget,int inCharge){
 		Target = newTarget;
 		TargetSpotlightMovmentScpit = Target.GetComponent<SpotlightMovmentScpit> ();
+		chargeOfparticle = inCharge;
 	}
+
 	public GameObject getTarget(){
 		return Target;
 	}
@@ -76,7 +80,7 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 		if (c.tag =="PlayerSpotLight") {
 			IsConsumed = true;
-			TargetSpotlightMovmentScpit.addpower (amountOfPowerHeld);//increment power of player
+			TargetSpotlightMovmentScpit.addpower (chargeOfparticle * amountOfPowerHeld);//increment power of player
 
 
 			Destroy (gameObject);
@@ -86,7 +90,8 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 
 	IEnumerator activateMovement(){
-		yield return new WaitForSeconds (0.001f);
+		
+		yield return new WaitForSeconds (waitTimeforMovment);
 		canMove = true;
 	}
 

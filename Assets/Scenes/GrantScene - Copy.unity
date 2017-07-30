@@ -1418,9 +1418,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114903500753391466, guid: 28155b7e0f82c47b6b49cf261a70c4c6,
         type: 2}
-      propertyPath: particleSpawnRate
-      value: 0.25
-      objectReference: {fileID: 0}
+      propertyPath: particleToSpawnNoDirection
+      value: 
+      objectReference: {fileID: 1232776094647620, guid: e790326f46e6c654d9ec6bc0ba69bc20,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28155b7e0f82c47b6b49cf261a70c4c6, type: 2}
   m_IsPrefabParent: 0

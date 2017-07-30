@@ -78,7 +78,13 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 		//sets the UI components
 		HudManager.Instance.UpdatePowerSource (player1, currentPowerLevel/maxPowerLevel);
 	}
-
+	//effects blobs
+	void OnTriggerEnter2D(Collider2D blobTouched){
+		if (blobTouched.tag == "Blob") {
+			sittingBlobScript blobTouchedScript = blobTouched.gameObject.GetComponentInChildren<sittingBlobScript> ();
+			blobTouchedScript.setState (0);
+		}
+	}
 
 }
 
