@@ -90,11 +90,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSpeed: 200
-  particleTurnSpeed: 5000
+  particleTurnSpeed: 7
   consumeDistance: 0.1
   amountOfPowerHeld: 2
   IsConsumed: 0
-  waitTimeforMovment: 0.001
+  waitTimeforMovment: 0.1
 --- !u!212 &212714423272334842
 SpriteRenderer:
   m_ObjectHideFlags: 1

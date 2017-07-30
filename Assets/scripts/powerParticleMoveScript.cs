@@ -24,7 +24,7 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
-		Invoke ("Die", 10);
+		Invoke ("Die", 3);
 		StartCoroutine (activateMovement());
 		SizeTracker = transform.localScale.x;
 	}
@@ -65,7 +65,7 @@ public class powerParticleMoveScript : MonoBehaviour {
 	
 		Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
 
-		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * 500);
+		transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * particleTurnSpeed);
 	}
 
 	public void setTargetAndCharge(GameObject newTarget,int inCharge){

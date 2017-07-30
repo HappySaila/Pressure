@@ -20,6 +20,7 @@ public class sittingBlobScript : MonoBehaviour {
 	private Rigidbody2D rb;
 
 	bool isidle = false;
+	public float spawnDelay;
 
 	private int State;
 	//0=white
@@ -46,6 +47,7 @@ public class sittingBlobScript : MonoBehaviour {
 		percentONE = 0.02f;
 		percentTWO = 0.02f;
 		updateOwnerShipBars ();
+		GetComponent<Animator> ().speed = 1/spawnDelay;
 	}
 
 	void SetPlayers(){
@@ -61,23 +63,23 @@ public class sittingBlobScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Behave ();
 	}
 
-	void Behave(){
+	public void Behave(){
 		//0=white
 		//1=green
 		//2=purple
 
 		switch (State) {
 		case 0://.WHITE:
-			SendParticles(particleToSpawn,1) ;
+			StartCoroutine (SendParticles(particleToSpawn,1));
 			break;
 		case 1://.GREEN:
-			SendParticles(particleToSpawn,-1) ;
+			StartCoroutine (SendParticles(particleToSpawn,-1));
+
 			break;
 		case 2://.PURPLE:
-			SendParticles(particleToSpawnNoDirection,1) ;
+			StartCoroutine (SendParticles(particleToSpawnNoDirection,1));
 			break;
 		}
 	}
@@ -107,38 +109,29 @@ public class sittingBlobScript : MonoBehaviour {
 
 	}
 
-	public void SendParticle(GameObject owner,GameObject sendParticle, int charge){
+	void SendParticle(GameObject owner,GameObject sendParticle, int charge){
 		
 			GameObject newParticle = (GameObject)GameObject.Instantiate (sendParticle, transform.position, Random.rotation );
 			powerParticleMoveScript newParticleScript = newParticle.GetComponent<powerParticleMoveScript> ();
 			newParticleScript.setTargetAndCharge (owner,charge);
-		
-			
-			DeltaTimeCount = 0;
 	}
 
+	IEnumerator SendParticles(GameObject sendParticle,int charge){
+		//sendsparticle burst
+		float particlesFor1 = percentONE;
+		float particlesFor2 = percentTWO;
 
 
-	void SendParticles(GameObject sendParticle,int charge){
-		
-		DeltaTimeCount += Time.deltaTime;
-		float particlesFor1=percentONE;
-		float particlesFor2=percentTWO;
-
-
-		if (DeltaTimeCount > particleSpawnRate) {
-			while(particlesFor1>0.09f ||particlesFor2>0.09f){
-				
-				if(particlesFor1>0.09f){
-					particlesFor1 -= 0.1f;
-					SendParticle(player1,sendParticle,charge);
-				}
-				if(particlesFor2>0.09f){
-					particlesFor2 -= 0.1f;
-					SendParticle(player2,sendParticle,charge);
-				}
+		while (particlesFor1 > 0.09f || particlesFor2 > 0.09f) {
+			yield return new WaitForSeconds (0.1f);
+			if (particlesFor1 > 0.09f) {
+				particlesFor1 -= 0.1f;
+				SendParticle (player1, sendParticle, charge);
 			}
-			DeltaTimeCount = 0;
+			if (particlesFor2 > 0.09f) {
+				particlesFor2 -= 0.1f;
+				SendParticle (player2, sendParticle, charge);
+			}
 		}
 	}
 
