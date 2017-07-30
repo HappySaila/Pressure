@@ -14,6 +14,8 @@ public class powerParticleMoveScript : MonoBehaviour {
 	public bool IsConsumed;
 
 	private Rigidbody2D rb;
+	private SpriteRenderer sr;
+
 	private SpotlightMovmentScpit TargetSpotlightMovmentScpit;
 	bool canMove;
 	float SizeTracker;
@@ -22,9 +24,12 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 	private int chargeOfparticle; //1 or -1   
 
+	public int timeToLiveFor;
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
-		Invoke ("Die", 3);
+
+
+		Invoke ("Die", timeToLiveFor);
 		StartCoroutine (activateMovement());
 		SizeTracker = transform.localScale.x;
 	}
@@ -99,5 +104,8 @@ public class powerParticleMoveScript : MonoBehaviour {
 		canMove = true;
 	}
 
-
+	public void setColourOfParticle(Color newCol){
+		sr = GetComponent<SpriteRenderer>();
+		sr.color = newCol;
+	}
 }
