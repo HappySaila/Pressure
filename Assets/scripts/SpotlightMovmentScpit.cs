@@ -16,6 +16,8 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 
 	private Rigidbody2D rb;
 
+	public float movmentPowerCost;
+
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 		maxPowerLevel = 1000;
@@ -26,8 +28,15 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 		if (canMove){
 			UpdatePlayerMovement ();
 		}
+
+
+
+
 	}
 	void UpdatePlayerMovement(){
+		
+
+
 		if (player1) {//player true
 			if (Input.GetKey ("up")) {
 				movement.y = 1;
@@ -36,6 +45,8 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 			} else {
 				movement.y = 0;
 			}
+				
+			
 
 			if (Input.GetKey ("left")) {
 				movement.x = -1;
@@ -67,6 +78,7 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 
 		rb.velocity = movement.normalized * currentSpeed * Time.deltaTime;
 		if (movement.magnitude != 0){
+			addpower (movmentPowerCost);//while moveing you lose power
 			float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
 			Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
 
