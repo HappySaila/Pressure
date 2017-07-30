@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1ce120355701d4da8a88ec41c7fdf6d5
+timeCreated: 1501408985
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: stoNe
+  fontNames:
+  - stoNe
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
