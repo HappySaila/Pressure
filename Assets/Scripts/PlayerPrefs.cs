@@ -1,14 +1,3 @@
-/*
-	PreviewLabs.PlayerPrefs
-	April 1, 2014 version
-
-	Public Domain
-	
-	To the extent possible under law, PreviewLabs has waived all copyright and related or neighboring rights to this document. This work is published from: Belgium.
-	
-	http://www.previewlabs.com
-	
-*/
 using UnityEngine;
 using System;
 using System.Collections;

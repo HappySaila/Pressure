@@ -83,11 +83,11 @@ public class GameManager : MonoBehaviour {
 		if (ScoreManager.instance.isWinner()){
 			//player has won - go to win screen
 			SceneManager.LoadScene (2);
-			return;
+		} else {
+			yield return new WaitForSeconds (3);
+			
+			SceneManager.LoadScene (1);
 		}
-
-		yield return new WaitForSeconds (3);
-
-		SceneManager.LoadScene (1);
+			
 	}
 }

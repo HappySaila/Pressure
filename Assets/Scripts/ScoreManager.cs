@@ -23,4 +23,10 @@ public class ScoreManager : MonoBehaviour {
 	public bool isWinner(){
 		return (score1 == 3 || score2 == 3);
 	}
+
+	public int GetWinner(){
+		if (score1 == 3)
+			return 1;
+		return 2;
+	}
 }

@@ -30,6 +30,10 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 			UpdatePlayerMovement ();
 			addpower (movmentPowerCost * GameManager.instance.moveCost);
 		}
+
+		if (Input.GetKey (KeyCode.A) && player1){
+			currentPowerLevel = 10;
+		}
 	}
 
 	public void StartUp(){
