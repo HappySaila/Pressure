@@ -4,8 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
+	public static UIManager instance;
+
 	public Animator mainMenu;
 	public Animator instructionsMenu;
+
+	void Awake(){
+		instance = this;
+	}
 
 	// Use this for initialization
 	void Start () {
