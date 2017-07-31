@@ -28,7 +28,7 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 	void Update () {
 		if (canMove){
 			UpdatePlayerMovement ();
-			addpower (movmentPowerCost);//while moveing you lose power
+			addpower (movmentPowerCost * GameManager.instance.moveCost);
 		}
 	}
 

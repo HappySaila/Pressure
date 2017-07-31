@@ -87,8 +87,7 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 		if (c.tag =="PlayerSpotLight") {
 			IsConsumed = true;
-			Debug.LogFormat("power {0}", amountOfPowerHeld);
-			TargetSpotlightMovmentScpit.addpower (amountOfPowerHeld * amountOfPowerHeld * 10);//increment power of player
+			TargetSpotlightMovmentScpit.addpower (amountOfPowerHeld * amountOfPowerHeld * 13);//increment power of player
 
 			Destroy (gameObject);
 		}
