@@ -25,6 +25,7 @@ public class powerParticleMoveScript : MonoBehaviour {
 	public Color green;
 	public Color purple;
 
+	public int state;
 
 	public int timeToLiveFor;
 	void Start () {
@@ -85,7 +86,7 @@ public class powerParticleMoveScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D c){
 
-		if (c.tag =="PlayerSpotLight") {
+		if (c.tag =="PlayerSpotLight" && state != 1) {
 			IsConsumed = true;
 			TargetSpotlightMovmentScpit.addpower (amountOfPowerHeld * amountOfPowerHeld * 13);//increment power of player
 			//calculate volume
@@ -95,14 +96,20 @@ public class powerParticleMoveScript : MonoBehaviour {
 			Destroy (gameObject);
 		}
 		else if (c.tag =="greenPlate") {
-
 			setColourOfParticle (green);
-			amountOfPowerHeld = Mathf.Abs (amountOfPowerHeld);
 		}
 		else if (c.tag =="purplePlate") {
-
 			setColourOfParticle (purple);
-			amountOfPowerHeld = (-1f)*(Mathf.Abs (amountOfPowerHeld));
+		}
+
+		if (state == 1 && c.tag =="PlayerSpotLight"){
+			print ("Running");
+			//purple particle
+			IsConsumed = true;
+			TargetSpotlightMovmentScpit.addpower (-20f);
+			//calculate volume
+			SoundManager.INSTANCE.PlayHurt ();
+			Destroy (gameObject);
 		}
 
 
