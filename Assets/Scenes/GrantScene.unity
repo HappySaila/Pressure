@@ -403,7 +403,6 @@ SpriteRenderer:
   m_Size: {x: 4.96, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
 --- !u!224 &268316028 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224534368055841070, guid: 12cdd7e143ba6614c9b00a32f533ddb1,
@@ -985,7 +984,6 @@ SpriteRenderer:
   m_Size: {x: 24, y: 17.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
 --- !u!4 &726619622
 Transform:
   m_ObjectHideFlags: 0
@@ -1222,7 +1220,6 @@ SpriteRenderer:
   m_Size: {x: 4.96, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
 --- !u!1 &920260605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1291,7 @@ MonoBehaviour:
   currentPowerLevel: 670
   player1: 1
   canMove: 0
-  movmentPowerCost: 0.5
+  movmentPowerCost: 0.25
 --- !u!58 &992740899
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1406,7 +1403,6 @@ SpriteRenderer:
   m_Size: {x: 4.96, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
 --- !u!1 &1201675314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,7 +1496,6 @@ SpriteRenderer:
   m_Size: {x: 4.96, y: 5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
 --- !u!114 &1201675318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,7 +1513,7 @@ MonoBehaviour:
   currentPowerLevel: 670
   player1: 0
   canMove: 0
-  movmentPowerCost: 0.5
+  movmentPowerCost: 0.25
 --- !u!95 &1201675319
 Animator:
   serializedVersion: 3
