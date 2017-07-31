@@ -10,7 +10,12 @@ public class SoundManager : MonoBehaviour {
     public float Volume;
 
 	//audio sources
-	public AudioSource BossIncoming;
+	public AudioSource Collide;
+	public AudioSource Hurt;
+	public AudioSource Win;
+	public AudioSource Die;
+	public AudioSource Gain;
+
 
     float lowPitch = 0.8f;
 	float highPitch = 1.2f;
@@ -26,9 +31,27 @@ public class SoundManager : MonoBehaviour {
 			
 	}
 
-	public void PlayBossIncoming(){
-		BossIncoming.PlayOneShot(BossIncoming.clip);
+	public void PlayCollider(){
+		Collide.PlayOneShot(Collide.clip);
 	}
+
+	public void PlayHurt(){
+		Hurt.PlayOneShot(Hurt.clip);
+	}
+
+	public void PlayGain(float vol){
+		Gain.volume = vol;
+		Gain.PlayOneShot(Gain.clip);
+	}
+
+	public void PlayWin(){
+		Win.PlayOneShot(Win.clip);
+	}
+
+	public void PlayDie(){
+		Die.PlayOneShot(Die.clip);
+	}
+
 
 
     //tools

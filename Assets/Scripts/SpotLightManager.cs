@@ -20,6 +20,7 @@ public class SpotLightManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 	}
 
 	void SpawnSpotLight(){

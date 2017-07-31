@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour {
 
@@ -19,19 +20,31 @@ public class MusicManager : MonoBehaviour {
 		}			
 	}
 
+	public void SetMusic(bool menu){
+		if (menu){
+			PlayMenuMusic ();
+		} else {
+			PlayGameMusic ();
+		}
+	}
+
 	void Start(){
 		DontDestroyOnLoad (gameObject);
 	}
 
+	void Update(){
+		
+	}
+
 	public void PlayGameMusic(){
-		Tracks [0].TransitionTo (2f);
+		Tracks [0].TransitionTo (0);
 	}
 
 	public void PlayMenuMusic(){
-		Tracks [1].TransitionTo (2f);
+		Tracks [1].TransitionTo (0);
 	}
 
 	public void PlayMuteMusic(){
-		Tracks [2].TransitionTo (2f);
+		Tracks [2].TransitionTo (0);
 	}
 }

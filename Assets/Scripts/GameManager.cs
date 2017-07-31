@@ -64,11 +64,12 @@ public class GameManager : MonoBehaviour {
 
 	public void btnQuitClicked(){
 		SceneManager.LoadScene (0);
+		MusicManager.INSTANCE.SetMusic (true);
 	}
 
 	public void PlayerDied(bool Player1Died){
 		moveCost = 0;
-
+		SoundManager.INSTANCE.PlayDie ();
 		StartCoroutine (RestartRound(Player1Died));
 	}
 

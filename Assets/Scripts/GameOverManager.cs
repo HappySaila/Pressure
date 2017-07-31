@@ -9,6 +9,8 @@ public class GameOverManager : MonoBehaviour {
 	public Animator panelAnim;
 
 	void Start(){
+		SoundManager.INSTANCE.PlayWin ();
+		MusicManager.INSTANCE.SetMusic (true);
 		Winner.text = "Player " + ScoreManager.instance.GetWinner() + "\nwins!";
 	}
 

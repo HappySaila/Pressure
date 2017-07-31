@@ -16,6 +16,8 @@ public class sittingBlobScript : MonoBehaviour {
 	public Color green;//1
 	public Color purple;//2
 
+	ParticleSystem pr;
+
 	private SpriteRenderer sr;
 	private Rigidbody2D rb;
 
@@ -40,7 +42,7 @@ public class sittingBlobScript : MonoBehaviour {
 	void Start () {
 		sr = GetComponentInChildren <SpriteRenderer>();
 		rb = GetComponentInChildren<Rigidbody2D>();
-
+		pr = GetComponent <ParticleSystem> ();
 		setState (0);
 		SetPlayers ();
 
@@ -99,12 +101,16 @@ public class sittingBlobScript : MonoBehaviour {
 		switch (State) {
 		case 0:
 			sr.color = white;
+			pr.startColor = white;
 			break;
 		case 1:
 			sr.color = green;
+			pr.startColor = green;
+
 			break;
 		case 2:
 			sr.color = purple;
+			pr.startColor = purple;
 			break;
 		}
 

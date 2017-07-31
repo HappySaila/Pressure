@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour {
 
 	public void btnPlayClicked(){
 		SceneManager.LoadScene (1);
+		MusicManager.INSTANCE.SetMusic (false);
 	}
 
 	public void btnStatsClicked(){
@@ -33,5 +34,6 @@ public class UIManager : MonoBehaviour {
 
 	public void btnQuitClicked(){
 		instructionsMenu.SetTrigger ("SwipeIn");
+		MusicManager.INSTANCE.SetMusic (true);
 	}
 }

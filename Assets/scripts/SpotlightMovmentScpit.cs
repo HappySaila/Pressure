@@ -30,10 +30,6 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 			UpdatePlayerMovement ();
 			addpower (movmentPowerCost * GameManager.instance.moveCost);
 		}
-
-		if (Input.GetKey (KeyCode.A) && player1){
-			currentPowerLevel = 10;
-		}
 	}
 
 	public void StartUp(){
@@ -123,17 +119,22 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 			case 1://.GREEN:
 				addpower(50);
 				Destroy (blobTouched.transform.parent.gameObject);
-
+				SoundManager.INSTANCE.PlayGain (0.5f);
 				break;
 			case 2://.PURPLE:
 				addpower(-150);
 				Destroy (blobTouched.transform.parent.gameObject);
+				SoundManager.INSTANCE.PlayHurt ();
 				break;
 			}
 
 
 
 		}
+	}
+
+	void OnCollisionEnter2D(Collision2D collider){
+		SoundManager.INSTANCE.PlayCollider ();
 	}
 
 }

@@ -88,7 +88,10 @@ public class powerParticleMoveScript : MonoBehaviour {
 		if (c.tag =="PlayerSpotLight") {
 			IsConsumed = true;
 			TargetSpotlightMovmentScpit.addpower (amountOfPowerHeld * amountOfPowerHeld * 13);//increment power of player
-
+			//calculate volume
+			float vol = amountOfPowerHeld / 7;
+			vol = Mathf.Clamp (vol, 0f, 1f);
+			SoundManager.INSTANCE.PlayGain (vol);
 			Destroy (gameObject);
 		}
 		else if (c.tag =="greenPlate") {
@@ -101,6 +104,8 @@ public class powerParticleMoveScript : MonoBehaviour {
 			setColourOfParticle (purple);
 			amountOfPowerHeld = (-1f)*(Mathf.Abs (amountOfPowerHeld));
 		}
+
+
 
 	}
 
