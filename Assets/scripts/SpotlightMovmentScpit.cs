@@ -119,7 +119,7 @@ public class SpotlightMovmentScpit	 : MonoBehaviour {
 			case 1://.GREEN:
 				addpower(50);
 				Destroy (blobTouched.transform.parent.gameObject);
-				SoundManager.INSTANCE.PlayGain (0.5f);
+				SoundManager.INSTANCE.PlayGain (0.2f);
 				break;
 			case 2://.PURPLE:
 				addpower(-150);

@@ -34,6 +34,6 @@ public class UIManager : MonoBehaviour {
 
 	public void btnQuitClicked(){
 		instructionsMenu.SetTrigger ("SwipeIn");
-		MusicManager.INSTANCE.SetMusic (true);
+		Application.Quit ();
 	}
 }
